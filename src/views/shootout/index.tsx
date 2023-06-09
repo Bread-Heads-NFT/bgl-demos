@@ -150,7 +150,7 @@ export const ShootoutView: FC = ({ }) => {
               </h1>
               {/* CONTENT GOES HERE */}
               <div className="text-center">
-                <h2 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-green-500 to-green-900 mt-10 mb-8">It's a Draw!</h2>
+                <h2 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-green-500 to-green-900 mt-10 mb-8">It&apos;s a Draw!</h2>
               </div>
               <div className="text-center">
                 <StartGame text={"Play Again"} umi={umi} setLoading={setLoading} publicKey={umiPublicKey} />
