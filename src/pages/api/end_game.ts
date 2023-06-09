@@ -88,7 +88,7 @@ export default async function handler(
       }
     }
 
-    let result = await builder.sendAndConfirm(umi, { send: { commitment: 'finalized', maxRetries: 100 } });
+    let result = await builder.sendAndConfirm(umi, { send: { commitment: 'confirmed', maxRetries: 100 } });
     console.log(`result: ${result}`);
 
     res.status(200).json({ txid: base58.deserialize(result.signature)[0] })

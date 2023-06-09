@@ -53,7 +53,7 @@ export default async function handler(
       matchName: 'demo',
       mint: publicKey,
       action: action,
-    }).sendAndConfirm(umi, { send: { commitment: 'finalized', maxRetries: 100 } });
+    }).sendAndConfirm(umi, { send: { commitment: 'confirmed', maxRetries: 100 } });
 
     res.status(200).json({ txid: base58.deserialize(result.signature)[0] })
   } catch (e: any) {
