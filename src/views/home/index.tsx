@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 
 // Components
-import { RequestAirdrop } from '../../components/RequestAirdrop';
 import pkg from '../../../package.json';
 
 // Store
@@ -33,7 +32,7 @@ export const HomeView: FC = ({ }) => {
         <div className='mt-6'>
         <div className='text-sm font-normal align-bottom text-right text-slate-600 mt-4'>v{pkg.version}</div>
         <h1 className="text-center text-5xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          Solana Next
+          BGL Demos
         </h1>
         </div>
         <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-300 my-2">
@@ -49,7 +48,6 @@ export const HomeView: FC = ({ }) => {
           </div>
         </div>
         <div className="flex flex-col mt-2">
-          <RequestAirdrop />
           <h4 className="md:w-full text-2xl text-slate-300 my-2">
           {wallet &&
           <div className="flex flex-row justify-center">

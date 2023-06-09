@@ -3,7 +3,7 @@ import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react
 import {
     UnsafeBurnerWalletAdapter
 } from '@solana/wallet-adapter-wallets';
-import { Cluster, clusterApiUrl } from '@solana/web3.js';
+import { Cluster } from '@solana/web3.js';
 import { FC, ReactNode, useCallback, useMemo } from 'react';
 import { AutoConnectProvider, useAutoConnect } from './AutoConnectProvider';
 import { notify } from "../utils/notifications";
@@ -16,6 +16,14 @@ const ReactUIWalletModalProviderDynamic = dynamic(
   { ssr: false }
 );
 
+function clusterApiUrl(cluster?: Cluster, tls?: boolean): string {
+    if (cluster === 'devnet') {
+        return 'https://api.devnet.solana.com';
+    } else if (cluster === 'mainnet-beta') {
+        return 'https://solana-mainnet.rpc.extrnode.com';
+    }
+}
+
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const { autoConnect } = useAutoConnect();
     const { networkConfiguration } = useNetworkConfiguration();
@@ -26,7 +34,6 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     const wallets = useMemo(
         () => [
-            new UnsafeBurnerWalletAdapter(),
         ],
         [network]
     );
