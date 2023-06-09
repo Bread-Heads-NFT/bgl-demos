@@ -20,7 +20,7 @@ function clusterApiUrl(cluster?: Cluster, tls?: boolean): string {
     if (cluster === 'devnet') {
         return 'https://api.devnet.solana.com';
     } else if (cluster === 'mainnet-beta') {
-        return 'https://solana-mainnet.rpc.extrnode.com';
+        return process.env.NEXT_PUBLIC_RPC_ENDPOINT;
     }
 }
 
